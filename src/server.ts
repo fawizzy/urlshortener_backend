@@ -2,11 +2,15 @@ import "reflect-metadata";
 import { AppDataSource } from "./data-source";
 import * as express from "express";
 import { urlRoute } from "./routes/url.routes";
+import * as swaggerUi from "swagger-ui-express";
+import * as swaggerOptions from "./swagger";
 
 AppDataSource.initialize().catch((error) => console.log(error));
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 
 // Middleware to parse incoming JSON requests
 app.use(express.json());
