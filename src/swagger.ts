@@ -5,7 +5,7 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Teamflow API Documentation",
+      title: "URL_SHORTENER API Documentation",
       version: "1.0.0",
     },
   },
