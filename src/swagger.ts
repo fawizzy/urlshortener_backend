@@ -1,15 +1,16 @@
-import * as swaggerJsdoc from "swagger-jsdoc";
+import swaggerJsdoc = require("swagger-jsdoc");
 
 const options = {
   failOnErrors: true, // Whether or not to throw when parsing errors. Defaults to false.
   definition: {
-    openapi: "3.1.0",
+    openapi: "3.0.0",
     info: {
-      title: "URL SHORTENERF API Documentation",
+      title: "Teamflow API Documentation",
       version: "1.0.0",
     },
   },
   apis: ["./src/routes/*.ts"],
 };
 
-export const openapiSpecification = swaggerJsdoc(options);
+const openapiSpecification = swaggerJsdoc(options);
+module.exports = openapiSpecification;

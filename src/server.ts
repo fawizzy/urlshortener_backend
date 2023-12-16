@@ -10,7 +10,7 @@ AppDataSource.initialize().catch((error) => console.log(error));
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerOptions));
+app.use("/v1/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerOptions));
 
 // Middleware to parse incoming JSON requests
 app.use(express.json());

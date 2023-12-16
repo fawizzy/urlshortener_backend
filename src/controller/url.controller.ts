@@ -11,16 +11,16 @@ const base_url = process.env.BASE_URL;
 
 export const addurl = async (req: Request, res: Response) => {
   try {
-    const newurl = req.body ? req.body.newurl : null;
-    if (!isValidUrl(newurl)) {
+    const longurl = req.body ? req.body.longurl : null;
+    if (!isValidUrl(longurl)) {
       return res.send("Make sure your url is valid");
     }
 
-    if (!newurl) {
+    if (!longurl) {
       res.send("enter url to shorten");
     }
     const url = new Url();
-    url.url = newurl;
+    url.url = longurl;
     url.generatedUrl = generateRandomString(4);
     await AppDataSource.manager.save(url);
     return res
